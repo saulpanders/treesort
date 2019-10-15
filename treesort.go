@@ -9,6 +9,7 @@
 package main
 
 import (
+	//"flag"
 	"fmt"
 	"os"
 	"strconv"
@@ -25,22 +26,29 @@ type tree struct {
 func main() {
 
 	var values []int
-	for i := 1; i < len(os.Args); i++ {
-		//strconv library handles int-string stuff
-		arg, err := strconv.Atoi(os.Args[i])
-		if err != nil {
-			//handle error
-			fmt.Println(err)
-			os.Exit(2)
-		}
-		//append is a built in modifier, sweet!
-		values = append(values, arg)
-	}
 
-	//treesort our array
-	Sort(values)
-	fmt.Println(values)
-	//sorts values in place
+	//if no input, print usage
+	if len(os.Args) == 1 {
+		fmt.Println("Usage: treesort <int_1> <int_2>.... <int_n>")
+
+	} else {
+		for i := 1; i < len(os.Args); i++ {
+			//strconv library handles int-string stuff
+			arg, err := strconv.Atoi(os.Args[i])
+			if err != nil {
+				//handle error
+				fmt.Println(err)
+				os.Exit(2)
+			}
+			//append is a built in modifier, sweet!
+			values = append(values, arg)
+		}
+
+		//treesort our array
+		Sort(values)
+		fmt.Println(values)
+		//sorts values in place
+	}
 }
 func Sort(values []int) {
 	var root *tree
