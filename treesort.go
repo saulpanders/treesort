@@ -1,8 +1,6 @@
 /*
-	Paul Sanders
 	@saulpanders
 	treesort.go -- testing recursive data structs & tree review
-	8/29/18
 
 */
 
